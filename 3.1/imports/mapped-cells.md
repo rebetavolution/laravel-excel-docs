@@ -7,12 +7,13 @@ pageClass: no-toc
 In case you have a more custom spreadsheet and only want to access specific **cells**, you can implement the `WithMappedCells` concern.
 
 You might have a speadsheet looking like this:
+-|A    |B    |
+-|---- |----|
+-|name | Patrick Brouwers|
+-|---- |----|
+1| email | patrick@maatwebsite.nl |
 
-|name | Patrick Brouwers|
-|---- |----|
-| email | patrick@maatwebsite.nl |
-
-We can now map `name` to `B1` and `email` to `B2`. The value of those coordinates will then be available under the given array key.
+We can now map `name` to `A1` and `email` to `B1`. The value of those coordinates will then be available under the given array key.
 
 ```php
 namespace App\Imports;
@@ -26,8 +27,8 @@ class UsersImport implements WithMappedCells, ToModel
     public function mapping(): array
     {
         return [
-            'name'  => 'B1',
-            'email' => 'B2',
+            'name'  => 'A1',
+            'email' => 'B1',
         ];
     }
     
